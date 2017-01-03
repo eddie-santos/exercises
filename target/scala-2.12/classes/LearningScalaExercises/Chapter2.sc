@@ -46,6 +46,10 @@ myDouble.toInt
 // Question 6
 
 def addressParse(line: String): (Int,Int,Int) = {
-  val pattern: Regex = """.*([\d\d\d]-[\d\d\d]-[\d\d\d]).*""".r
-  val pattern(phone) = line
+  val pattern = """.*(\d{3})-(\d{3})-(\d{4}).*""".r
+  val pattern (cc,ac,n) = line
+  (cc.toInt,ac.toInt,n.toInt)
 }
+
+val example: String = "Frank,123 Main,925-555-1943,95122"
+addressParse(example)
